@@ -1,0 +1,12 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "mon api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "getrepo": "gh repo list li-rodolphetournier --json name,description,url --limit 1000 --jq \"to_entries | map({id: (.key + 1)} + .value)\" > ../data.json"
+  },
+  "author": "",
+  "license": "ISC"
+}
