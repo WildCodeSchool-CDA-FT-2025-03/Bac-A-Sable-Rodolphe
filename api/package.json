@@ -3,10 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "getRepo": "gh repo list jujuck --json id,isPrivate,url,languages > ./data.json",
+  "dev": "ts-node-dev ./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "getRepo": "gh repo list jujuck --json id,isPrivate,url,languages > ./data.json"
+    "getRepo": "gh repo list li-rodolphetournier --json name,description,url --limit 1000 --jq \"to_entries | map({id: (.key + 1)} + .value)\" > ../api/data.json",
+    "start": "ts-node-dev ./src/index.ts"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.9",
+    "ts-node-dev": "^2.0.0"
+  }
 }
